@@ -1,0 +1,38 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Chats</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <ion-list inset>
+        <ion-item-sliding *ngFor="let chat of chats; let i = index">
+            <ion-item>
+                <ion-avatar item-left (click)="openConversation(chat.user)">
+                    <img [src]="chat.recieverPhoto" *ngIf="chat.recieverPhoto == undefined">
+                    <img [src]="defaultPhoto" *ngIf="chat.recieverPhoto != undefined">
+                </ion-avatar>
+                <h2 (click)="openConversation(chat.user)">{{chat.recieverName}}</h2>
+                <p (click)="openConversation(chat.user)">
+                    <!--for unread-->
+                    <b>{{chat.lastMsgText}}</b>
+                    <!--<i *ngIf="item.isRead">{{item.message}}</i>!-->
+                </p>
+                <ion-note (click)="openConversation(chat.user)" item-right *ngIf="chat.lastMsgDate != undefined && !isToday(chat.lastMsgDate) && !isYesterday(chat.lastMsgDate)">
+                    {{chat.lastMsgDate | date:'dd/MM/yyyy H:mm'}}
+                </ion-note>
+                <ion-note (click)="openConversation(chat.user)" item-right *ngIf="chat.lastMsgDate != undefined && isToday(chat.lastMsgDate)">
+                    Today {{chat.lastMsgDate | date:'H:mm'}}
+                </ion-note>
+                <ion-note (click)="openConversation(chat.user)" item-right *ngIf="chat.lastMsgDate != undefined && isYesterday(chat.lastMsgDate)">
+                    Yesterday {{chat.lastMsgDate | date:'H:mm'}}
+                </ion-note>
+            </ion-item>
+            <ion-item-options>
+                <button ion-button color="danger" icon-left (click)="removeChat(i,chat)">
+                    <ion-icon name="trash"></ion-icon>
+                  Delete
+                </button>
+            </ion-item-options>
+        </ion-item-sliding>
+    </ion-list>
+</ion-content>

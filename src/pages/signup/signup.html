@@ -1,0 +1,50 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Registeration</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <!--<p ion-text  *ngIf="submitAttempt" style="color: #ea6153;">Please fill out all details accurately.</p>!-->
+    <form [formGroup]="signupForm">
+        <ion-item>
+            <ion-label floating>Username</ion-label>
+            <ion-input formControlName="username" type="text" [class.invalid]="!signupForm.controls.username.valid && (signupForm.controls.username.dirty || submitAttempt)"></ion-input>
+        </ion-item>
+        <!--<ion-item *ngIf="signupForm.controls.username.pending">
+            <p>Checking username...</p>
+        </ion-item>!-->
+        <ion-item *ngIf="!signupForm.controls.username.valid && !signupForm.controls.username.pending && (signupForm.controls.username.dirty || submitAttempt)">
+            <p ion-text color="danger">Please enter valid username!</p>
+        </ion-item>
+        <ion-item *ngIf="userAlreadyExist">
+            <p ion-text color="danger">Username already exist please choose another one!!</p>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>E-Mail</ion-label>
+            <ion-input type="text" formControlName="email" [class.invalid]="!signupForm.controls.email.valid && (signupForm.controls.email.dirty || submitAttempt)"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="!signupForm.controls.email.valid  && (signupForm.controls.email.dirty || submitAttempt)">
+            <p ion-text color="danger">Please enter a valid E-Mail.</p>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>Password</ion-label>
+            <ion-input formControlName="password" type="text" [class.invalid]="!signupForm.controls.password.valid && (signupForm.controls.password.dirty || submitAttempt)"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="!signupForm.controls.password.valid  && (signupForm.controls.password.dirty || submitAttempt)">
+            <p ion-text color="danger">Please enter a valid Password.</p>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>Confirm Password</ion-label>
+            <ion-input formControlName="confirmPassword" type="text" [class.invalid]="!signupForm.controls.confirmPassword.valid && (signupForm.controls.confirmPassword.dirty || submitAttempt)"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="!signupForm.controls.confirmPassword.valid  && (signupForm.controls.confirmPassword.dirty || submitAttempt)">
+            <p ion-text color="danger">Password does not match.</p>
+        </ion-item>
+        <ion-item no-lines class="padding-top">
+            <ion-label>Agree</ion-label>
+            <ion-checkbox></ion-checkbox>
+        </ion-item>
+        <button ion-button round block class="login-button" (click)="onSignup()">Register</button>
+    </form>
+</ion-content>

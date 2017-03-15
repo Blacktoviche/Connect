@@ -1,0 +1,34 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Contacts</ion-title>
+    </ion-navbar>
+    <ion-searchbar (ionInput)="search($event)" [(ngModel)]="searchKey"></ion-searchbar>
+</ion-header>
+<ion-content>
+  <ion-list inset>
+    <ion-item-sliding *ngFor="let contact of contacts; let i = index">
+      <ion-item>
+        <ion-avatar item-left>
+        <img [src]="contact.photo" *ngIf="!contact.photo" (click)="openProfile(contact)">
+        <img [src]="defaultPhoto" *ngIf="contact.photo" (click)="openProfile(contact)">
+        </ion-avatar>
+        <h2 (click)="openConversation(contact)">{{contact.username}} <ion-icon name="contact" *ngIf="contact.contact"></ion-icon> </h2>
+        <p (click)="openConversation(contact)">{{contact.email}}</p>
+      </ion-item>
+      <ion-item-options>
+        <button ion-button icon-left (click)="addContact(contact)" *ngIf="!contact.isContact">
+          <ion-icon name="person-add"></ion-icon>
+          Add
+        </button>
+        <button ion-button  icon-left (click)="openConversation(contact)">
+          <ion-icon name="send"></ion-icon>
+          Send
+        </button>
+        <button ion-button icon-left (click)="removeContact(i, contact)" *ngIf="contact.isContact">
+          <ion-icon name="trash"></ion-icon>
+          Delete
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

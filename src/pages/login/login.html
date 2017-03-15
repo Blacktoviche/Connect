@@ -1,0 +1,26 @@
+<ion-content padding>
+    <p ion-text *ngIf="submitAttempt" style="color: #ea6153;">Please fill out all details accurately.</p>
+    <form [formGroup]="loginForm">
+        <ion-item>
+            <ion-label floating>E-Mail</ion-label>
+            <ion-input type="text" formControlName="email" [class.invalid]="!loginForm.controls.email.valid && (loginForm.controls.email.dirty || submitAttempt)"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="!loginForm.controls.email.valid  && (loginForm.controls.email.dirty || submitAttempt)">
+            <p ion-text color="danger">Please enter a valid E-Mail.</p>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>Password</ion-label>
+            <ion-input formControlName="password" type="text" [class.invalid]="!loginForm.controls.password.valid && (loginForm.controls.password.dirty || submitAttempt)"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="!loginForm.controls.password.valid  && (loginForm.controls.password.dirty || submitAttempt)">
+            <p ion-text color="danger">Please enter a valid Password.</p>
+        </ion-item>
+        <button ion-button round block (click)="login()">Submit</button>
+        <ion-grid class="default-margin-top">
+            <ion-row>
+                <ion-col width-40 class="right" (click)="signup()"><a>Register   |</a></ion-col>
+                <ion-col width-60 (click)="forgotPassword()"><a>Forgot Password</a></ion-col>
+            </ion-row>
+        </ion-grid>
+    </form>
+</ion-content>

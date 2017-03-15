@@ -1,0 +1,19 @@
+page-login {
+    @include marginTop($defaultMarginTop);
+
+    .right{
+      text-align: right;
+    }
+
+    .left{
+      text-align: left;
+    }
+
+    a{
+      font-size: 1.0em;
+    }
+
+    ion-col{
+      padding: 2px;
+    }
+}

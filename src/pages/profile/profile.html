@@ -1,0 +1,66 @@
+<ion-content>
+    <div class="cover">
+        <img [src]="profileBG" *ngIf="profileBG">
+    </div>
+    <div class="avatar">
+        <img src="{{user.photo}}" *ngIf="!user.photo" (click)="openProfile(contact)">
+        <img src="{{defaultPhoto}}" *ngIf="user.photo" (click)="openProfile(contact)">
+    </div>
+    <div class="fab fab-top fab-right">
+        <button ion-fab color="primary" *ngIf="!user.isContact && user != loggedinUser" (click)="addContact()">
+            <ion-icon name="person-add"></ion-icon>
+        </button>
+    </div>
+    <div class="fab fab-top fab-left">
+        <button ion-fab color="secondary" *ngIf="user != loggedinUser" (click)="openConversation()">
+            <ion-icon name="chatbubbles"></ion-icon>
+        </button>
+    </div>
+
+    <div>
+        <h2 class="center">{{user.username}}</h2>
+        <p padding> </p>
+        <ion-list no-border>
+            <ion-list-header>
+                Info
+            </ion-list-header>
+            <ion-item>
+                <ion-icon name='mail' item-left></ion-icon>
+
+            </ion-item>
+        </ion-list>
+        <!--<div padding><button ion-button round block (click)="logout()" *ngIf="user == loggedinUser">Logout</button></div>-->
+    </div>
+</ion-content>
+<!--
+<ion-header>
+    <ion-navbar primary>
+        <ion-title>
+            Profile
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-card>
+          <img src="{{user.photo}}" *ngIf="!user.photo" (click)="openProfile(contact)">
+        <img src="{{defaultPhoto}}" *ngIf="user.photo" (click)="openProfile(contact)">
+    </ion-card>
+
+    <ion-card>
+        <ion-item text-wrap>{{user?.username}}
+            <ion-note item-right>
+                Username
+            </ion-note>
+        </ion-item>
+        <ion-item text-wrap>
+            <ion-icon secondary item-left name="person"></ion-icon>{{user?.name}}</ion-item>
+        <ion-item text-wrap>
+            <ion-icon secondary item-left name="mail"></ion-icon>{{user?.email}}</ion-item>
+        <div padding>
+            <button full primary *ngIf="user != loggedinUser" (click)="openConversation()">
+                <ion-icon name="chatbubbles"></ion-icon>
+            </button>
+        </div>
+    </ion-card>
+</ion-content>-->
