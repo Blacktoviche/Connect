@@ -3,8 +3,8 @@
         <img [src]="profileBG" *ngIf="profileBG">
     </div>
     <div class="avatar">
-        <img src="{{user.photo}}" *ngIf="!user.photo" (click)="openProfile(contact)">
-        <img src="{{defaultPhoto}}" *ngIf="user.photo" (click)="openProfile(contact)">
+        <img src="{{user.photo}}" *ngIf="!user.photo" (click)="onChangePhoto()">
+        <img src="{{defaultPhoto}}" *ngIf="user.photo" (click)="onChangePhoto()">
     </div>
     <div class="fab fab-top fab-right">
         <button ion-fab color="primary" *ngIf="!user.isContact && user != loggedinUser" (click)="addContact()">
@@ -32,35 +32,3 @@
         <!--<div padding><button ion-button round block (click)="logout()" *ngIf="user == loggedinUser">Logout</button></div>-->
     </div>
 </ion-content>
-<!--
-<ion-header>
-    <ion-navbar primary>
-        <ion-title>
-            Profile
-        </ion-title>
-    </ion-navbar>
-</ion-header>
-
-<ion-content>
-    <ion-card>
-          <img src="{{user.photo}}" *ngIf="!user.photo" (click)="openProfile(contact)">
-        <img src="{{defaultPhoto}}" *ngIf="user.photo" (click)="openProfile(contact)">
-    </ion-card>
-
-    <ion-card>
-        <ion-item text-wrap>{{user?.username}}
-            <ion-note item-right>
-                Username
-            </ion-note>
-        </ion-item>
-        <ion-item text-wrap>
-            <ion-icon secondary item-left name="person"></ion-icon>{{user?.name}}</ion-item>
-        <ion-item text-wrap>
-            <ion-icon secondary item-left name="mail"></ion-icon>{{user?.email}}</ion-item>
-        <div padding>
-            <button full primary *ngIf="user != loggedinUser" (click)="openConversation()">
-                <ion-icon name="chatbubbles"></ion-icon>
-            </button>
-        </div>
-    </ion-card>
-</ion-content>-->
