@@ -11,7 +11,7 @@ If you want to know my story about this projct and Ionic2 you can click hear rea
 ## Plugins
 [AngularFire2](https://github.com/angular/angularfire2/)
 [Cordova SQlite](https://github.com/litehelpers/Cordova-sqlite-storage)
-
+[Firebase](https://firebase.google.com)
 
 ## Installation
 - Clone this repo
