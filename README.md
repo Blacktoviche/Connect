@@ -9,9 +9,10 @@ If you want to know my story about this projct and Ionic2 you can click hear rea
 [https://forum.ionicframework.com/t/simple-chat-app-using-ionic2-angularfire2-firebase-sqlite/83358](https://forum.ionicframework.com/t/simple-chat-app-using-ionic2-angularfire2-firebase-sqlite/83358)
 
 ## Plugins
-[AngularFire2](https://github.com/angular/angularfire2/)
-[Cordova SQlite](https://github.com/litehelpers/Cordova-sqlite-storage)
-[Firebase](https://firebase.google.com)
+
+- [AngularFire2](https://github.com/angular/angularfire2/)
+- [Cordova SQlite](https://github.com/litehelpers/Cordova-sqlite-storage)
+- [Firebase](https://firebase.google.com)
 
 ## Installation
 - Clone this repo
